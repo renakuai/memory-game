@@ -1,38 +1,192 @@
-.App {
-  text-align: center;
+:root {
+  --color-darkpurple: #160622;
+  --header-size: 2.15rem;
+  --color-lilac: #ca87ff;
+  --color-cyan: #02ffe1;
+  --color-purple: #331549;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Logo {
+  font-size: var(--header-size);
+  padding: 1rem;
+  border: 1px linear;
+  background-color: var(--color-darkpurple);
+  border-radius: 8px;
+}
+
+.Logo-wrap {
+  max-width: 640px;
+  position: relative;
+  background: linear-gradient(91.54deg, #9d41e3 0%, #4bf5e0 100%);
+  padding: 0.15rem;
+  border-radius: 8px;
+}
+
+.Game,
+.Body,
+.StartDirections {
+  max-width: 640px;
+  margin-top: 3rem;
+  line-height: 1.5rem;
+}
+
+.StartDirections__Selection {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--color-lilac);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.Directions {
+  max-width: 304px;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-delay: 10s;
+  animation: typing 5s steps(50, end) forwards;
+}
+
+.Yes {
+  width: 0;
+  max-width: fit-content;
+  animation: slow-typing 3s steps(50, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slow-typing {
+  0% {
+    width: 0;
+  }
+  99% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.PokemonCards {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.Card {
+  background-color: var(--color-purple);
+  border-radius: 8px;
+  height: 200px;
+  width: 200px;
+}
+
+.Card > img {
+  height: 200px;
+  width: auto;
+}
+
+.Card:hover {
+  box-sizing: border-box;
+  background-color: #4f246f;
+}
+
+.Card > img:hover {
+  animation: sway 3s ease-out infinite;
+  -webkit-animation: sway 3s ease-out infinite;
+}
+
+.Scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.Current,
+.Best {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.ScoreGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: var(--color-cyan);
+}
+
+.Lost {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.75rem;
+}
+
+.Options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: var(--color-lilac);
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+  75% {
+    transform: rotate(12deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+  75% {
+    transform: rotate(12deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
